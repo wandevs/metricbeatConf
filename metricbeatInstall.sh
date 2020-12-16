@@ -4,7 +4,7 @@
 # metricbeat installation 
 
 version='6.8.9' #get from http://log.wanchain.org:5601/app/kibana#/home/tutorial/kibanaMetrics?_g=()
-metricbeat_yml='https://raw.githubusercontent.com/Nevquit/metricbeatConf/main/metricbeat-v1.yml'
+metricbeat_yml='https://raw.githubusercontent.com/wandevs/metricbeatConf/main/metricbeat-v1.yml'
 
 #Clean env
 echo "################### Clean env############"
