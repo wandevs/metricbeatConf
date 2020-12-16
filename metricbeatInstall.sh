@@ -28,7 +28,7 @@ sudo dpkg -i metricbeat-$version-amd64.deb
 
 echo "############## Download metricbeat.yml ..."
 wget $metricbeat_yml
-cp -f metricbeat-v1.yml /etc/metricbeat/metricbeat.yml
+sudo cp -f metricbeat-v1.yml /etc/metricbeat/metricbeat.yml
 
 echo "################### start metricbeat service ..."
 sudo systemctl enable metricbeat
