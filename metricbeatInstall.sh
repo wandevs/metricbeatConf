@@ -16,9 +16,11 @@ sudo dpkg -P metricbeat
 #Input ES password
 echo 'Enter the password of elastic:'
 read -s PWD
-echo 'Confirm the password of elastic::'
+echo 'Confirm the password of elastic:'
 read -s PWD2
 echo ''
+echo 'Enter hostname displyaed in elastic'
+read -s host
 
 if [ ${PWD} != ${PWD2} ]
 then
@@ -26,13 +28,15 @@ then
     exit
 fi
 
-#Save the user and password in keystore
-echo $PWD   | sudo metricbeat keystore add ES_PWD --stdin --force
-
 echo "############## Download&Install metricbeat "$version" ..."
 cd ~/download
 curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-$version-amd64.deb
 sudo dpkg -i metricbeat-$version-amd64.deb
+
+#Save the user and password in keystore
+echo $PWD   | sudo metricbeat keystore add ES_PWD --stdin --force
+echo $host   | sudo metricbeat keystore add HS_node --stdin --force
+
 
 echo "############## Download metricbeat.yml ..."
 wget $metricbeat_yml
