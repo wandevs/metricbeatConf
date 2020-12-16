@@ -5,6 +5,8 @@ Use for system monitor for wanchain.
 ```
 sudo metricbeat modules list
 
-metricbeat modules enable XXXXX
+sudo metricbeat modules enable XXXXX
+
+sudo systemctl restart metricbeat
 
 ```
