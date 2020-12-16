@@ -5,21 +5,29 @@
 
 version='6.8.9' #get from http://log.wanchain.org:5601/app/kibana#/home/tutorial/kibanaMetrics?_g=()
 metricbeat_yml='https://raw.githubusercontent.com/Nevquit/metricbeatConf/main/metricbeat-v1.yml'
+
+#Clean env
+echo "################### Clean env############"
+sudo systemctl stop metricbeat
+sudo dpkg -l metricbeat
+sudo dpkg -r metricbeat
+sudo dpkg -P metricbeat
+
 #Input ES password
 echo 'Enter the password of elastic:'
-read -s ES_PWD
+read -s PWD
 echo 'Confirm the password of elastic::'
-read -s ES_PWD2
+read -s PWD2
 echo ''
 
-if [ ${ES_PWD} != ${ES_PWD2} ]
+if [ ${PWD} != ${PWD2} ]
 then
     echo 'Passwords mismatched'
     exit
 fi
 
 #Save the user and password in keystore
-echo $ES_PWD   | sudo metricbeat keystore add ES_PWD --stdin --force
+echo $PWD   | sudo metricbeat keystore add ES_PWD --stdin --force
 
 echo "############## Download&Install metricbeat "$version" ..."
 cd ~/download
