@@ -98,7 +98,7 @@ output.elasticsearch:
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
-  username: "elastic"
+  username: "remote_monitoring_user"
   password: "${ES_PWD}"
 
 #----------------------------- Logstash output --------------------------------
