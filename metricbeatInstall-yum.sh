@@ -19,7 +19,7 @@ echo 'Confirm the password of elastic:'
 read -s PWD2
 echo ''
 echo 'Enter hostname displyaed in elastic'
-read -s host
+read host
 
 if [ ${PWD} != ${PWD2} ]
 then
