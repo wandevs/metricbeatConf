@@ -12,3 +12,9 @@ sudo metricbeat modules enable XXXXX
 sudo systemctl restart metricbeat
 
 ```
+change password:
+```
+echo NEW_PASS_WORD | sudo metricbeat keystore add ES_PWD --stdin --force
+
+sudo systemctl restart metricbeat
+```
